@@ -1,0 +1,9 @@
+{
+	"id": "handwriting-ocr",
+	"name": "Handwriting OCR",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Transform handwritten documents and scanned images into editable text with Handwriting OCR's AI-powered handwriting to text conversion.",
+	"author": "ikmolbo",
+	"isDesktopOnly": false
+}

@@ -1,0 +1,22 @@
+.handwriting-ocr-credit-display {
+	margin-top: 1em;
+	padding: 1em;
+	border-radius: 4px;
+	background-color: var(--background-secondary);
+}
+
+.handwriting-ocr-success {
+	color: var(--text-success);
+	font-weight: bold;
+	margin-bottom: 0.5em;
+}
+
+.handwriting-ocr-error {
+	color: var(--text-error);
+	font-weight: bold;
+}
+
+.handwriting-ocr-info {
+	color: var(--text-muted);
+	margin: 0.25em 0;
+}
