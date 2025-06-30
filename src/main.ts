@@ -1,4 +1,4 @@
-import { Editor, Notice, Plugin, TFile, MenuItem } from "obsidian";
+import { Editor, Notice, Plugin, TFile, MenuItem, setIcon } from "obsidian";
 import { HandwritingOCRSettings, DEFAULT_SETTINGS, HandwritingOCRSettingTab } from "./settings";
 import { HandwritingOCRAPI } from "./api";
 import { extractFilePathFromSelection, getFileFromPath, fileToBlob, validateFileSize } from "./utils";
@@ -356,29 +356,10 @@ export default class HandwritingOCRPlugin extends Plugin {
 
 	private createSpinnerIcon(): HTMLElement {
 		const spinnerContainer = document.createElement("span");
-		spinnerContainer.style.cssText = "display: inline-block; margin-right: 8px;";
+		spinnerContainer.addClass("handwriting-ocr-spinner");
 		
-		const icon = document.createElement("span");
-		icon.className = "lucide-loader-circle";
-		icon.style.cssText = "width: 16px; height: 16px; display: inline-block; animation: spin 1s linear infinite;";
-		
-		// Create the SVG manually since we can't rely on Obsidian's icon system in notices
-		icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg>`;
-		
-		spinnerContainer.appendChild(icon);
-		
-		// Add the CSS animation if it doesn't exist
-		if (!document.getElementById("handwriting-ocr-spinner-style")) {
-			const style = document.createElement("style");
-			style.id = "handwriting-ocr-spinner-style";
-			style.textContent = `
-				@keyframes spin {
-					from { transform: rotate(0deg); }
-					to { transform: rotate(360deg); }
-				}
-			`;
-			document.head.appendChild(style);
-		}
+		// Use Obsidian's built-in loader-circle icon
+		setIcon(spinnerContainer, "loader-circle");
 		
 		return spinnerContainer;
 	}

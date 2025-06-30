@@ -1,3 +1,24 @@
+/* Handwriting OCR Plugin Styles */
+
+/* Settings intro section */
+.handwriting-ocr-intro {
+	margin-bottom: 30px;
+	line-height: 1.6;
+}
+
+/* Spinner animation for loader icon */
+.handwriting-ocr-spinner {
+	animation: handwriting-ocr-spin 1s linear infinite;
+	display: inline-block;
+	margin-right: 8px;
+}
+
+@keyframes handwriting-ocr-spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* Credit display */
 .handwriting-ocr-credit-display {
 	margin-top: 1em;
 	padding: 1em;

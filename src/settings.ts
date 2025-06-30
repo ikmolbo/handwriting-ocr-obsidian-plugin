@@ -28,8 +28,7 @@ export class HandwritingOCRSettingTab extends PluginSettingTab {
 		containerEl.createEl("h2", { text: "Handwriting OCR" });
 
 		// Add introductory text
-		const introDiv = containerEl.createDiv("handwriting-ocr-intro");
-		introDiv.style.cssText = "margin-bottom: 30px; line-height: 1.6;";
+		const introDiv = containerEl.createDiv({ cls: "handwriting-ocr-intro" });
 		
 		introDiv.createEl("p", {
 			text: "Transform handwritten documents and scanned images into editable text with our AI-powered OCR technology. Perfect for digitizing handwritten notes, converting legacy documents, and making your analog content searchable within Obsidian."
