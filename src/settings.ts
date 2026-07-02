@@ -40,7 +40,7 @@ export class HandwritingOCRSettingTab extends PluginSettingTab {
 		ctaP.createEl("span", { text: "Get started with " });
 		ctaP.createEl("a", {
 			text: "free trial credits",
-			href: "https://www.handwritingocr.com/register"
+			href: "https://dashboard.handwritingocr.com/register"
 		});
 		ctaP.createEl("span", { text: " to test the service." });
 
@@ -93,8 +93,8 @@ export class HandwritingOCRSettingTab extends PluginSettingTab {
 		// Add help text
 		containerEl.createDiv({ cls: "setting-item-description", text: "Get your API key from " })
 			.createEl("a", { 
-				text: "handwritingocr.com/settings/api",
-				href: "https://www.handwritingocr.com/settings/api"
+				text: "dashboard.handwritingocr.com/settings",
+				href: "https://dashboard.handwritingocr.com/settings?tab=api"
 			});
 	}
 

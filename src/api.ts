@@ -43,7 +43,7 @@ export interface DocumentResult {
 }
 
 export class HandwritingOCRAPI {
-	private baseUrl = 'https://www.handwritingocr.com/api/v3';
+	private baseUrl = 'https://api.handwritingocr.com/v3';
 	
 	constructor(private apiKey: string) {}
 

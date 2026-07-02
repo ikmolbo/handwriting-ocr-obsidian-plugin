@@ -21,7 +21,7 @@ Extract text directly to your clipboard, create new notes with formatted content
 ## Setup
 
 1. Install the plugin
-2. Get your API key from [handwritingocr.com](https://www.handwritingocr.com/settings/api).
+2. Get your API key from [your Handwriting OCR settings](https://dashboard.handwritingocr.com/settings?tab=api).
 3. Enter your API key in the plugin settings
 4. Click "Validate" to check your key and view remaining credits
 
