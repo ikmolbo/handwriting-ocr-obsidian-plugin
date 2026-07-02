@@ -25,7 +25,7 @@ export default class HandwritingOCRPlugin extends Plugin {
 			id: "replace-selection",
 			name: "Replace selection",
 			editorCallback: (editor: Editor) => {
-				this.processSelection(editor, "replace");
+				void this.processSelection(editor, "replace");
 			}
 		});
 
@@ -33,7 +33,7 @@ export default class HandwritingOCRPlugin extends Plugin {
 			id: "append-to-selection",
 			name: "Append to selection",
 			editorCallback: (editor: Editor) => {
-				this.processSelection(editor, "append");
+				void this.processSelection(editor, "append");
 			}
 		});
 
@@ -264,7 +264,7 @@ export default class HandwritingOCRPlugin extends Plugin {
 							
 							// Use Obsidian's wiki-link format for better compatibility
 							noteContent += `## Page ${pageResult.page_number}\n\n![[${thumbnailPath}]]\n\n`;
-						} catch (error) {
+						} catch (_error) {
 							noteContent += `## Page ${pageResult.page_number}\n\n`;
 						}
 					}
@@ -277,7 +277,7 @@ export default class HandwritingOCRPlugin extends Plugin {
 			noteContent += `---\n\nSource: [[${file.path}]]`;
 			
 			// Small delay to ensure all thumbnails are saved before creating the note
-			await new Promise(resolve => setTimeout(resolve, 100));
+			await new Promise(resolve => window.setTimeout(resolve, 100));
 			
 			const newFile = await this.app.vault.create(
 				`${noteName}.md`,
@@ -324,7 +324,7 @@ export default class HandwritingOCRPlugin extends Plugin {
 			if (!folderExists) {
 				await this.app.vault.createFolder(thumbnailFolder);
 			}
-		} catch (error) {
+		} catch (_error) {
 			// Folder creation failed, but don't interrupt the flow
 		}
 	}
@@ -369,7 +369,7 @@ export default class HandwritingOCRPlugin extends Plugin {
 							const thumbnailPath = await this.saveThumbnail(thumbnailData, `${file.basename}-append`, pageResult.page_number);
 							
 							appendContent += `## Page ${pageResult.page_number}\n\n![[${thumbnailPath}]]\n\n`;
-						} catch (error) {
+						} catch (_error) {
 							appendContent += `## Page ${pageResult.page_number}\n\n`;
 						}
 					}
@@ -393,8 +393,7 @@ export default class HandwritingOCRPlugin extends Plugin {
 	}
 
 	private createSpinnerIcon(): HTMLElement {
-		const spinnerContainer = document.createElement("span");
-		spinnerContainer.addClass("handwriting-ocr-spinner");
+		const spinnerContainer = createSpan({ cls: "handwriting-ocr-spinner" });
 		
 		// Use Obsidian's built-in loader-circle icon
 		setIcon(spinnerContainer, "loader-circle");

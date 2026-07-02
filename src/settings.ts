@@ -71,7 +71,7 @@ export class HandwritingOCRSettingTab extends PluginSettingTab {
 		
 		// If we have an API key, automatically validate it
 		if (this.plugin.settings.apiKey) {
-			this.validateApiKey();
+			void this.validateApiKey();
 		}
 
 		// Thumbnail setting
@@ -161,7 +161,7 @@ export class HandwritingOCRSettingTab extends PluginSettingTab {
 				await this.app.vault.createFolder(thumbnailFolder);
 				new Notice("Created 'OCR Thumbnails' folder for storing page images");
 			}
-		} catch (error) {
+		} catch (_error) {
 			// Folder creation failed silently
 		}
 	}

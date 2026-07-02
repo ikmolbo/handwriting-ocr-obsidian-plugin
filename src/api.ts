@@ -216,7 +216,7 @@ export class HandwritingOCRAPI {
 		const maxAttempts = 60; // 2 minutes timeout
 		
 		while (attempts < maxAttempts) {
-			await new Promise(resolve => setTimeout(resolve, 2000)); // 2 second delay
+			await new Promise(resolve => window.setTimeout(resolve, 2000)); // 2 second delay
 			
 			const status = await this.checkStatus(documentId);
 			

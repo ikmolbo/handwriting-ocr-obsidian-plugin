@@ -1,6 +1,6 @@
 {
 	"name": "handwriting-ocr",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Extract text from images and PDFs using Handwriting OCR API",
 	"main": "main.js",
 	"scripts": {
